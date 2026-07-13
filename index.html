@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JM Studio — Justyna Marnicka | Stylizacja Paznokci &amp; Podologia, Wrocław</title>
+<meta name="description" content="JM Studio we Wrocławiu — stylizacja paznokci i podologia w jednym miejscu. 5.0 na Google z 111 opinii. Zarezerwuj wizytę online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Manrope:wght@300..800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#180D11;
+    --ink-2:#241019;
+    --wine-deep:#3A0F22;
+    --wine:#7C1F3E;
+    --wine-bright:#B33257;
+    --gold:#C9A24B;
+    --gold-soft:#E7D19E;
+    --blush:#E8CBC0;
+    --cream:#F7EEE6;
+    --cream-dim:#CFB9B0;
+    --line:rgba(247,238,230,0.14);
+    --radius:22px;
+    --ease:cubic-bezier(.22,1,.36,1);
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--ink);
+    color:var(--cream);
+    font-family:'Manrope', sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    overflow-x:hidden;
+  }
+  img,svg{display:block; max-width:100%;}
+  a{color:inherit; text-decoration:none;}
+  ul{list-style:none;}
+  .display{
+    font-family:'Bodoni Moda', serif;
+    font-style:italic;
+    font-optical-sizing:auto;
+    letter-spacing:0.01em;
+  }
+  .eyebrow{
+    font-family:'Manrope', sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--gold-soft);
+  }
+  .wrap{
+    max-width:1240px;
+    margin:0 auto;
+    padding:0 clamp(20px,5vw,64px);
+  }
+  section{position:relative;}
+  ::selection{background:var(--wine-bright); color:var(--cream);}
+  :focus-visible{outline:2px solid var(--gold); outline-offset:3px;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:100;
+    background:rgba(24,13,17,0.72);
+    backdrop-filter:blur(14px) saturate(140%);
+    border-bottom:1px solid var(--line);
+    transition:background 0.3s var(--ease);
+  }
+  .nav{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px clamp(20px,5vw,64px);
+  }
+  .logo{
+    font-family:'Bodoni Moda', serif;
+    font-style:italic;
+    font-size:1.35rem;
+    font-weight:600;
+    letter-spacing:0.02em;
+  }
+  .logo span{color:var(--gold-soft);}
+  .nav-links{
+    display:flex; gap:34px; align-items:center;
+  }
+  .nav-links a{
+    font-size:0.86rem; letter-spacing:0.03em; color:var(--cream-dim);
+    transition:color 0.25s var(--ease);
+    position:relative;
+  }
+  .nav-links a:hover{color:var(--cream);}
+  .nav-links a::after{
+    content:''; position:absolute; left:0; bottom:-6px; width:0; height:1px;
+    background:var(--gold); transition:width 0.3s var(--ease);
+  }
+  .nav-links a:hover::after{width:100%;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:12px 26px;
+    border-radius:999px;
+    font-size:0.82rem; font-weight:700; letter-spacing:0.04em;
+    text-transform:uppercase;
+    transition:transform 0.35s var(--ease), box-shadow 0.35s var(--ease), background 0.35s var(--ease);
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:linear-gradient(120deg, var(--wine-bright), var(--wine) 60%, var(--wine-deep));
+    color:var(--cream);
+    box-shadow:0 8px 24px -8px rgba(179,50,87,0.65);
+  }
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 32px -10px rgba(179,50,87,0.8);}
+  .btn-ghost{
+    border-color:var(--line);
+    color:var(--cream);
+  }
+  .btn-ghost:hover{border-color:var(--gold); color:var(--gold-soft); transform:translateY(-2px);}
+  .btn-gold{
+    background:linear-gradient(120deg, var(--gold-soft), var(--gold));
+    color:var(--ink);
+    box-shadow:0 8px 24px -8px rgba(201,162,75,0.55);
+  }
+  .btn-gold:hover{transform:translateY(-2px); box-shadow:0 14px 32px -10px rgba(201,162,75,0.7);}
+
+  .burger{display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:6px;}
+  .burger span{width:24px; height:2px; background:var(--cream); display:block; transition:0.3s var(--ease);}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;
+    display:flex; align-items:center;
+    padding:140px 0 80px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero::before{
+    content:''; position:absolute; inset:-20%;
+    background:
+      radial-gradient(38% 42% at 78% 18%, rgba(201,162,75,0.20), transparent 65%),
+      radial-gradient(48% 55% at 12% 82%, rgba(124,31,62,0.55), transparent 70%),
+      radial-gradient(60% 60% at 50% 105%, rgba(179,50,87,0.28), transparent 70%);
+    pointer-events:none;
+  }
+  .hero-grid{
+    position:relative; z-index:2;
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:60px; align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(2.8rem, 6.2vw, 5.4rem);
+    line-height:0.98;
+    font-weight:500;
+    margin:18px 0 26px;
+  }
+  .hero h1 em{
+    font-style:italic; color:transparent;
+    background:linear-gradient(100deg, var(--gold-soft), var(--blush) 45%, var(--gold) 90%);
+    -webkit-background-clip:text; background-clip:text;
+  }
+  .hero p.lead{
+    max-width:520px;
+    font-size:1.08rem;
+    color:var(--cream-dim);
+    margin-bottom:36px;
+  }
+  .hero-ctas{display:flex; gap:16px; flex-wrap:wrap; margin-bottom:44px;}
+  .trust-strip{
+    display:flex; flex-wrap:wrap; gap:14px;
+  }
+  .chip{
+    display:flex; align-items:center; gap:8px;
+    padding:9px 16px;
+    border:1px solid var(--line);
+    border-radius:999px;
+    font-size:0.78rem;
+    color:var(--cream-dim);
+    background:rgba(247,238,230,0.03);
+  }
+  .chip strong{color:var(--cream); font-weight:700;}
+  .chip .stars{color:var(--gold);}
+
+  /* signature drip graphic */
+  .drip-stage{
+    position:relative; z-index:2;
+    display:flex; align-items:center; justify-content:center;
+    height:clamp(340px, 42vw, 520px);
+  }
+  .drop{
+    position:absolute;
+    border-radius:50% 50% 50% 4%;
+    filter: blur(0px);
+  }
+  .drop-1{
+    width:min(78%,320px); aspect-ratio:1/1.15;
+    background:linear-gradient(150deg, var(--wine-bright), var(--wine) 55%, var(--wine-deep));
+    box-shadow:0 40px 90px -30px rgba(124,31,62,0.75), inset -18px -24px 50px rgba(0,0,0,0.35), inset 14px 18px 40px rgba(255,255,255,0.12);
+    animation:float 7s ease-in-out infinite;
+  }
+  .drop-2{
+    width:min(38%,150px); aspect-ratio:1/1.1;
+    background:linear-gradient(150deg, var(--gold-soft), var(--gold) 65%, #8a6a29);
+    box-shadow:0 24px 50px -18px rgba(201,162,75,0.6), inset -10px -14px 30px rgba(0,0,0,0.3), inset 8px 10px 22px rgba(255,255,255,0.25);
+    top:8%; right:6%;
+    animation:float 6s ease-in-out infinite 0.4s;
+  }
+  .drop-3{
+    width:min(22%,90px); aspect-ratio:1/1.05;
+    background:linear-gradient(150deg, var(--blush), #b98d80 70%);
+    box-shadow:0 18px 36px -14px rgba(0,0,0,0.5), inset -8px -10px 20px rgba(0,0,0,0.3), inset 6px 8px 16px rgba(255,255,255,0.25);
+    bottom:6%; left:4%;
+    animation:float 8s ease-in-out infinite 0.9s;
+  }
+  .drop-shine{
+    content:''; position:absolute; width:34%; height:20%; top:12%; left:16%;
+    background:rgba(255,255,255,0.55);
+    border-radius:50%;
+    filter:blur(6px);
+    opacity:0.7;
+  }
+  @keyframes float{
+    0%,100%{transform:translateY(0) rotate(0deg);}
+    50%{transform:translateY(-14px) rotate(-2deg);}
+  }
+
+  /* ---------- SECTION HEADERS ---------- */
+  .sec-head{max-width:640px; margin-bottom:56px;}
+  .sec-head h2{
+    font-size:clamp(2rem, 3.6vw, 3.1rem);
+    font-weight:500;
+    margin-top:14px;
+    line-height:1.08;
+  }
+  .sec-head p{color:var(--cream-dim); margin-top:16px; font-size:1.02rem; max-width:520px;}
+
+  section.pad{padding:120px 0;}
+  .divider{height:1px; background:var(--line); width:100%;}
+
+  /* ---------- ABOUT ---------- */
+  .about{
+    display:grid; grid-template-columns:0.85fr 1.15fr; gap:70px; align-items:center;
+  }
+  .about-visual{
+    position:relative; border-radius:var(--radius); overflow:hidden;
+    aspect-ratio:4/5;
+    background:
+      linear-gradient(160deg, rgba(201,162,75,0.18), transparent 40%),
+      linear-gradient(200deg, var(--wine-deep), var(--ink-2) 60%);
+    border:1px solid var(--line);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-visual .ring{
+    width:64%; aspect-ratio:1; border-radius:50%;
+    border:1px solid rgba(201,162,75,0.4);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .about-visual .ring-inner{
+    width:74%; aspect-ratio:1; border-radius:50%;
+    background:radial-gradient(circle at 35% 30%, var(--wine-bright), var(--wine) 55%, var(--wine-deep));
+    box-shadow:inset -20px -20px 50px rgba(0,0,0,0.4), inset 16px 16px 40px rgba(255,255,255,0.08);
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Bodoni Moda', serif; font-style:italic; color:var(--gold-soft); font-size:1.6rem; text-align:center; padding:20px;
+  }
+  .about-copy p{color:var(--cream-dim); margin-bottom:18px; font-size:1.02rem;}
+  .about-copy p strong{color:var(--cream); font-weight:700;}
+  .pillars{display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-top:32px;}
+  .pillar{
+    padding:20px; border:1px solid var(--line); border-radius:16px;
+    background:rgba(247,238,230,0.03);
+  }
+  .pillar .num{font-family:'Bodoni Moda', serif; font-style:italic; color:var(--gold); font-size:1.6rem;}
+  .pillar h4{margin:8px 0 6px; font-size:1rem; font-weight:700;}
+  .pillar p{color:var(--cream-dim); font-size:0.88rem; margin:0;}
+
+  /* ---------- SERVICES (shade card) ---------- */
+  .services-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:28px;
+  }
+  .service-card{
+    border-radius:var(--radius);
+    padding:38px 34px 34px;
+    border:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+    transition:transform 0.4s var(--ease), border-color 0.4s var(--ease);
+  }
+  .service-card:hover{transform:translateY(-6px); border-color:rgba(201,162,75,0.5);}
+  .service-card::before{
+    content:''; position:absolute; top:-40%; right:-30%; width:70%; height:70%;
+    border-radius:50%; filter:blur(60px); opacity:0.5;
+  }
+  .service-card.nails{background:linear-gradient(180deg, rgba(124,31,62,0.28), var(--ink-2) 55%);}
+  .service-card.nails::before{background:var(--wine-bright);}
+  .service-card.podo{background:linear-gradient(180deg, rgba(201,162,75,0.16), var(--ink-2) 55%);}
+  .service-card.podo::before{background:var(--gold);}
+  .service-card .tag{
+    display:inline-block; padding:6px 14px; border-radius:999px; font-size:0.7rem;
+    letter-spacing:0.14em; text-transform:uppercase; font-weight:700; margin-bottom:20px;
+  }
+  .service-card.nails .tag{background:rgba(179,50,87,0.25); color:var(--blush);}
+  .service-card.podo .tag{background:rgba(201,162,75,0.22); color:var(--gold-soft);}
+  .service-card h3{font-size:1.9rem; font-weight:500; margin-bottom:14px; position:relative; z-index:1;}
+  .service-card ul{margin:22px 0 26px; position:relative; z-index:1;}
+  .service-card li{
+    padding:12px 0; border-bottom:1px solid var(--line);
+    display:flex; justify-content:space-between; align-items:center;
+    font-size:0.96rem; color:var(--cream-dim);
+  }
+  .service-card li:last-child{border-bottom:none;}
+  .service-card li span.mark{color:var(--gold);}
+
+  /* ---------- SHADE GALLERY ---------- */
+  .shade-strip{
+    display:grid; grid-template-columns:repeat(6,1fr); gap:18px;
+  }
+  .shade{
+    text-align:center;
+  }
+  .shade-swatch{
+    aspect-ratio:1; border-radius:50%;
+    position:relative; overflow:hidden;
+    margin-bottom:14px;
+    box-shadow:0 20px 40px -18px rgba(0,0,0,0.6), inset -10px -12px 26px rgba(0,0,0,0.35), inset 8px 8px 20px rgba(255,255,255,0.15);
+    transition:transform 0.45s var(--ease);
+  }
+  .shade:hover .shade-swatch{transform:scale(1.08) rotate(-3deg);}
+  .shade-swatch::after{
+    content:''; position:absolute; width:55%; height:30%; top:12%; left:14%;
+    background:rgba(255,255,255,0.45); border-radius:50%; filter:blur(8px);
+  }
+  .shade h5{font-size:0.86rem; font-weight:700; letter-spacing:0.03em;}
+  .shade p{font-size:0.76rem; color:var(--cream-dim); margin-top:2px;}
+
+  .s1{background:linear-gradient(150deg,#E7D19E,#C9A24B);}
+  .s2{background:linear-gradient(150deg,#B33257,#7C1F3E);}
+  .s3{background:linear-gradient(150deg,#F0DCD3,#C79C8F);}
+  .s4{background:linear-gradient(150deg,#F4F1EA,#D9CFC2);}
+  .s5{background:linear-gradient(150deg,#3A0F22,#180D11);}
+  .s6{background:linear-gradient(150deg,#E8CBC0,#B33257);}
+
+  /* ---------- TESTIMONIALS ---------- */
+  .test-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:26px;
+  }
+  .test-card{
+    border:1px solid var(--line); border-radius:20px; padding:32px 28px;
+    background:rgba(247,238,230,0.03);
+    transition:transform 0.4s var(--ease), border-color 0.4s var(--ease);
+  }
+  .test-card:hover{transform:translateY(-6px) rotate(-0.4deg); border-color:rgba(201,162,75,0.45);}
+  .test-card .stars{color:var(--gold); letter-spacing:2px; margin-bottom:16px; font-size:0.95rem;}
+  .test-card p.quote{font-size:1.02rem; color:var(--cream); margin-bottom:20px; font-style:italic; font-family:'Bodoni Moda', serif;}
+  .test-card .who{display:flex; align-items:center; gap:12px;}
+  .avatar{
+    width:38px; height:38px; border-radius:50%;
+    background:linear-gradient(150deg, var(--wine-bright), var(--gold));
+    display:flex; align-items:center; justify-content:center;
+    font-weight:700; font-size:0.85rem; color:var(--ink);
+  }
+  .who .name{font-weight:700; font-size:0.9rem;}
+  .who .meta{font-size:0.76rem; color:var(--cream-dim);}
+
+  .stat-bar{
+    display:flex; gap:56px; flex-wrap:wrap; margin-top:64px; padding-top:48px; border-top:1px solid var(--line);
+  }
+  .stat .num{font-family:'Bodoni Moda', serif; font-style:italic; font-size:clamp(2.2rem,4vw,3.2rem); color:var(--gold-soft);}
+  .stat .lbl{color:var(--cream-dim); font-size:0.84rem; margin-top:4px;}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    border-radius:32px;
+    padding:70px clamp(30px,6vw,90px);
+    background:linear-gradient(120deg, var(--wine-deep), var(--wine) 55%, var(--wine-bright));
+    position:relative; overflow:hidden;
+    text-align:center;
+  }
+  .cta-banner::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(50% 80% at 80% 0%, rgba(201,162,75,0.35), transparent 70%);
+  }
+  .cta-banner h2{position:relative; font-size:clamp(2rem,4.2vw,3.4rem); font-weight:500; margin-bottom:18px;}
+  .cta-banner p{position:relative; color:var(--blush); max-width:560px; margin:0 auto 34px; font-size:1.05rem;}
+  .cta-banner .hero-ctas{justify-content:center; position:relative;}
+
+  /* ---------- CONTACT ---------- */
+  .contact-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
+  .info-row{
+    display:flex; gap:16px; padding:20px 0; border-bottom:1px solid var(--line);
+  }
+  .info-row:first-child{padding-top:0;}
+  .icon-badge{
+    width:42px; height:42px; border-radius:12px; flex-shrink:0;
+    background:rgba(201,162,75,0.14); border:1px solid rgba(201,162,75,0.3);
+    display:flex; align-items:center; justify-content:center; color:var(--gold-soft); font-size:1.1rem;
+  }
+  .info-row h4{font-size:0.98rem; margin-bottom:4px;}
+  .info-row p, .info-row a{color:var(--cream-dim); font-size:0.92rem;}
+  .info-row a:hover{color:var(--gold-soft);}
+
+  .book-panel{
+    border-radius:var(--radius); border:1px solid var(--line);
+    background:linear-gradient(165deg, rgba(201,162,75,0.1), var(--ink-2) 60%);
+    padding:40px 34px;
+  }
+  .book-panel h3{font-size:1.6rem; font-weight:500; margin-bottom:12px;}
+  .book-panel p{color:var(--cream-dim); margin-bottom:28px; font-size:0.95rem;}
+  .book-panel .btn{width:100%; justify-content:center; margin-bottom:14px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{border-top:1px solid var(--line); padding:56px 0 34px;}
+  .foot-grid{display:flex; justify-content:space-between; flex-wrap:wrap; gap:30px; margin-bottom:40px;}
+  .foot-links{display:flex; gap:28px; flex-wrap:wrap;}
+  .foot-links a{color:var(--cream-dim); font-size:0.88rem;}
+  .foot-links a:hover{color:var(--gold-soft);}
+  .foot-bottom{
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:12px;
+    color:var(--cream-dim); font-size:0.78rem; padding-top:24px; border-top:1px solid var(--line);
+  }
+
+  /* reveal animation */
+  .reveal{opacity:0; transform:translateY(28px); transition:opacity 0.8s var(--ease), transform 0.8s var(--ease);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:960px){
+    .hero-grid{grid-template-columns:1fr;}
+    .drip-stage{order:-1; height:280px;}
+    .about{grid-template-columns:1fr;}
+    .services-grid{grid-template-columns:1fr;}
+    .shade-strip{grid-template-columns:repeat(3,1fr);}
+    .test-grid{grid-template-columns:1fr;}
+    .contact-grid{grid-template-columns:1fr;}
+    .nav-links{
+      position:fixed; top:64px; left:0; right:0; bottom:0;
+      background:var(--ink); flex-direction:column; justify-content:flex-start;
+      padding:40px 24px; gap:26px; transform:translateX(100%);
+      transition:transform 0.4s var(--ease); z-index:99;
+    }
+    .nav-links.open{transform:translateX(0);}
+    .nav-links a{font-size:1.1rem;}
+    .burger{display:flex;}
+  }
+  @media (max-width:600px){
+    .shade-strip{grid-template-columns:repeat(2,1fr);}
+    section.pad{padding:80px 0;}
+    .stat-bar{gap:30px;}
+    .pillars{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav class="nav">
+    <a href="#top" class="logo">JM <span>Studio</span></a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">O nas</a></li>
+      <li><a href="#services">Usługi</a></li>
+      <li><a href="#gallery">Odcienie</a></li>
+      <li><a href="#opinie">Opinie</a></li>
+      <li><a href="#kontakt">Kontakt</a></li>
+      <li><a href="https://jmstudiostylizacjapaznokci.booksy.com" target="_blank" rel="noopener" class="btn btn-primary">Zarezerwuj</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Otwórz menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Wrocław · Dworcowa 11B/3U</p>
+        <h1 class="display">Paznokcie jak<br><em>dzieło sztuki.</em><br>Stopy jak nowe.</h1>
+        <p class="lead">JM Studio to jedyne miejsce we Wrocławiu, w którym precyzja stylizacji spotyka się z wiedzą podologiczną. Justyna Marnicka i jej zespół dbają o Twoje dłonie i stopy z tą samą starannością — od pierwszego druciku po ostatni połysk.</p>
+        <div class="hero-ctas">
+          <a href="https://jmstudiostylizacjapaznokci.booksy.com" target="_blank" rel="noopener" class="btn btn-primary">Zarezerwuj wizytę online</a>
+          <a href="#gallery" class="btn btn-ghost">Zobacz nasze prace</a>
+        </div>
+        <div class="trust-strip">
+          <div class="chip"><span class="stars">★★★★★</span> <strong>5.0</strong>&nbsp;/ 111 opinii Google</div>
+          <div class="chip">Dziś otwarte do <strong>20:00</strong></div>
+          <div class="chip">Przyjazne dla osób <strong>LGBTQ+</strong></div>
+        </div>
+      </div>
+      <div class="drip-stage" aria-hidden="true">
+        <div class="drop drop-1"><div class="drop-shine"></div></div>
+        <div class="drop drop-2"><div class="drop-shine"></div></div>
+        <div class="drop drop-3"><div class="drop-shine"></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- ABOUT -->
+  <section class="pad" id="about">
+    <div class="wrap about">
+      <div class="about-visual reveal">
+        <div class="ring">
+          <div class="ring-inner">Justyna Marnicka</div>
+        </div>
+      </div>
+      <div class="about-copy reveal">
+        <p class="eyebrow">Filozofia studia</p>
+        <h2 class="display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:500; margin:14px 0 22px;">Piękno i zdrowie<br>w jednych dłoniach.</h2>
+        <p><strong>JM Studio</strong> narodziło się z przekonania, że dłonie i stopy zasługują na ten sam poziom uwagi. Justyna od lat łączy artystyczną stylizację paznokci z rzetelną wiedzą podologiczną — dzięki temu klientki wracają nie tylko po piękny efekt, ale i po realną poprawę kondycji skóry i paznokci.</p>
+        <p>Nasze klientki najczęściej podkreślają jedno: <strong>dbałość o najmniejszy detal</strong> i trwałość efektu, który nie traci na jakości tygodniami po wizycie. To studio, w którym każda stylizacja jest zaprojektowana indywidualnie — pod Twój styl, a nie pod szablon.</p>
+        <div class="pillars">
+          <div class="pillar">
+            <div class="num">01</div>
+            <h4>Precyzja</h4>
+            <p>Każdy detal domykany z chirurgiczną dokładnością.</p>
+          </div>
+          <div class="pillar">
+            <div class="num">02</div>
+            <h4>Indywidualizm</h4>
+            <p>Twoja wizja, przeniesiona na paznokcie 1:1.</p>
+          </div>
+          <div class="pillar">
+            <div class="num">03</div>
+            <h4>Wiedza</h4>
+            <p>Podologiczne podejście do zdrowia stóp.</p>
+          </div>
+          <div class="pillar">
+            <div class="num">04</div>
+            <h4>Atmosfera</h4>
+            <p>Przytulna przestrzeń, w której chce się wracać.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- SERVICES -->
+  <section class="pad" id="services">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Karta usług</p>
+        <h2 class="display">Dwie specjalizacje.<br>Jeden adres.</h2>
+        <p>Stylizacja paznokci na najwyższym poziomie i profesjonalna podologia — pod jednym dachem, w sercu Wrocławia.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card nails reveal">
+          <span class="tag">Stylizacja paznokci</span>
+          <h3 class="display">Nail Art &amp; Manicure</h3>
+          <ul>
+            <li><span>Manicure hybrydowy</span><span class="mark">✓</span></li>
+            <li><span>Przedłużanie paznokci — żel / akrylożel</span><span class="mark">✓</span></li>
+            <li><span>Autorskie zdobienia i nail art</span><span class="mark">✓</span></li>
+            <li><span>Stylizacje na wyjątkowe okazje</span><span class="mark">✓</span></li>
+            <li><span>Pedicure kosmetyczny</span><span class="mark">✓</span></li>
+          </ul>
+          <a href="https://jmstudiostylizacjapaznokci.booksy.com" target="_blank" rel="noopener" class="btn btn-primary">Umów stylizację</a>
+        </div>
+        <div class="service-card podo reveal">
+          <span class="tag">Podologia</span>
+          <h3 class="display">Zdrowie stóp</h3>
+          <ul>
+            <li><span>Pedicure leczniczy</span><span class="mark">✓</span></li>
+            <li><span>Korekta wrastających paznokci</span><span class="mark">✓</span></li>
+            <li><span>Usuwanie modzeli i odcisków</span><span class="mark">✓</span></li>
+            <li><span>Pielęgnacja stóp wymagających troski</span><span class="mark">✓</span></li>
+            <li><span>Indywidualna diagnoza podologiczna</span><span class="mark">✓</span></li>
+          </ul>
+          <a href="https://jmstudiostylizacjapaznokci.booksy.com" target="_blank" rel="noopener" class="btn btn-gold">Umów wizytę podologiczną</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- GALLERY / SHADE CARD -->
+  <section class="pad" id="gallery">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Nasza paleta</p>
+        <h2 class="display">Karta odcieni JM Studio</h2>
+        <p>Sześć charakterystycznych stylów, po które klientki wracają najczęściej — od klasycznego nude po głęboką winną czerń.</p>
+      </div>
+      <div class="shade-strip">
+        <div class="shade reveal"><div class="shade-swatch s1"></div><h5>Gilt Edge</h5><p>Złoty akcent</p></div>
+        <div class="shade reveal"><div class="shade-swatch s2"></div><h5>Vinous</h5><p>Głęboka wiśnia</p></div>
+        <div class="shade reveal"><div class="shade-swatch s3"></div><h5>Nude Skin</h5><p>Naturalny beż</p></div>
+        <div class="shade reveal"><div class="shade-swatch s4"></div><h5>Glass Milk</h5><p>Mleczna biel</p></div>
+        <div class="shade reveal"><div class="shade-swatch s5"></div><h5>Wine Stain</h5><p>Głęboka czerń</p></div>
+        <div class="shade reveal"><div class="shade-swatch s6"></div><h5>Blush Rosé</h5><p>Różana pudrowa</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- TESTIMONIALS -->
+  <section class="pad" id="opinie">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <p class="eyebrow">Opinie klientek</p>
+        <h2 class="display">111 opinii.<br>Same piątki.</h2>
+        <p>Nie musisz wierzyć nam na słowo — zobacz, co mówią klientki, które wracają do nas od lat.</p>
+      </div>
+      <div class="test-grid">
+        <div class="test-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote">„Od lat wracam tylko tutaj — każdy detal jest przemyślany, a efekt zawsze trwały i perfekcyjnie dopracowany.”</p>
+          <div class="who">
+            <div class="avatar">JC</div>
+            <div><div class="name">Julia C.</div><div class="meta">Klientka Google</div></div>
+          </div>
+        </div>
+        <div class="test-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote">„Dziewczyny stworzyły przytulne miejsce, w którym każda wizyta to czysta przyjemność, a ich stylizacje nie mają sobie równych.”</p>
+          <div class="who">
+            <div class="avatar">ZH</div>
+            <div><div class="name">Zuzanna H.</div><div class="meta">Klientka Google</div></div>
+          </div>
+        </div>
+        <div class="test-card reveal">
+          <div class="stars">★★★★★</div>
+          <p class="quote">„Przyjazna atmosfera i najwyższy poziom wykonania — Ola potrafi przenieść na paznokcie każdy pomysł, jaki przyniosę.”</p>
+          <div class="who">
+            <div class="avatar">OM</div>
+            <div><div class="name">Ola M.</div><div class="meta">Klientka Google</div></div>
+          </div>
+        </div>
+      </div>
+      <div class="stat-bar reveal">
+        <div class="stat"><div class="num">5.0</div><div class="lbl">Średnia ocena Google</div></div>
+        <div class="stat"><div class="num">111</div><div class="lbl">Opinii klientek</div></div>
+        <div class="stat"><div class="num">2</div><div class="lbl">Specjalizacje pod jednym dachem</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="pad">
+    <div class="wrap">
+      <div class="cta-banner reveal">
+        <p class="eyebrow" style="color:var(--gold-soft);">Umów się już dziś</p>
+        <h2 class="display">Twoje dłonie i stopy<br>zasługują na to studio.</h2>
+        <p>Rezerwacja online zajmuje mniej niż minutę. Wybierz termin, usługę i specjalistkę — resztą zajmiemy się my.</p>
+        <div class="hero-ctas">
+          <a href="https://jmstudiostylizacjapaznokci.booksy.com" target="_blank" rel="noopener" class="btn btn-gold">Zarezerwuj przez Booksy</a>
+          <a href="tel:+48793184753" class="btn btn-ghost" style="border-color:rgba(247,238,230,0.4);">Zadzwoń: 793 184 753</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wrap"><div class="divider"></div></div>
+
+  <!-- CONTACT -->
+  <section class="pad" id="kontakt">
+    <div class="wrap contact-grid">
+      <div class="reveal">
+        <p class="eyebrow">Kontakt &amp; lokalizacja</p>
+        <h2 class="display" style="font-size:clamp(1.8rem,3vw,2.6rem); font-weight:500; margin:14px 0 30px;">Znajdź nas<br>we Wrocławiu.</h2>
+
+        <div class="info-row">
+          <div class="icon-badge">📍</div>
+          <div>
+            <h4>Adres</h4>
+            <p>Dworcowa 11B/3U, 50-456 Wrocław</p>
+            <a href="https://www.google.com/maps/search/?api=1&query=Dworcowa+11B%2F3U%2C+50-456+Wroc%C5%82aw" target="_blank" rel="noopener">Wyznacz trasę →</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="icon-badge">🕐</div>
+          <div>
+            <h4>Godziny otwarcia</h4>
+            <p>Dziś otwarte do 20:00</p>
+            <a href="https://jmstudiostylizacjapaznokci.booksy.com" target="_blank" rel="noopener">Pełny grafik i wolne terminy na Booksy →</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="icon-badge">📞</div>
+          <div>
+            <h4>Telefon</h4>
+            <a href="tel:+48793184753">793 184 753</a>
+          </div>
+        </div>
+        <div class="info-row">
+          <div class="icon-badge">✦</div>
+          <div>
+            <h4>Social media</h4>
+            <a href="https://instagram.com" target="_blank" rel="noopener">Instagram</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="book-panel reveal">
+        <p class="eyebrow">Rezerwacja online</p>
+        <h3 class="display">Zarezerwuj wizytę<br>w 60 sekund</h3>
+        <p>Wybierz stylizację paznokci lub zabieg podologiczny, dogodny termin i specjalistkę. Potwierdzenie otrzymasz od razu.</p>
+        <a href="https://jmstudiostylizacjapaznokci.booksy.com" target="_blank" rel="noopener" class="btn btn-primary">Otwórz Booksy</a>
+        <a href="tel:+48793184753" class="btn btn-ghost">Zadzwoń: 793 184 753</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a href="#top" class="logo">JM <span>Studio</span></a>
+      <ul class="foot-links">
+        <li><a href="#about">O nas</a></li>
+        <li><a href="#services">Usługi</a></li>
+        <li><a href="#gallery">Odcienie</a></li>
+        <li><a href="#opinie">Opinie</a></li>
+        <li><a href="#kontakt">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 JM Studio Justyna Marnicka. Wszelkie prawa zastrzeżone.</span>
+      <span>Dworcowa 11B/3U, 50-456 Wrocław · Przyjazne dla osób LGBTQ+</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Mobile nav toggle
+  const burger = document.getElementById('burger');
+  const navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', () => {
+    const isOpen = navLinks.classList.toggle('open');
+    burger.setAttribute('aria-expanded', isOpen);
+  });
+  navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+    navLinks.classList.remove('open');
+    burger.setAttribute('aria-expanded', 'false');
+  }));
+
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15 });
+  revealEls.forEach(el => io.observe(el));
+</script>
+
+</body>
+</html>
